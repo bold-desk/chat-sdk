@@ -57,5 +57,5 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
-    implementation("io.github.dineshdksf4610:test-bolddesk-chat-SDK:1.1.3")
+    implementation("io.github.dineshdksf4610:test-bolddesk-chat-SDK:1.1.7")
 }

@@ -56,8 +56,8 @@ class MainActivity : ComponentActivity() {
 
         // Configure the SDK once (sample values shown)
         BDChatSDK.configure(
-            "android_sdk_n3m7wgQSRK23Y0BJ32JKbpj5t2tZH3kYkxnNPzAKrMY",
-            "https://stagingboldsign.bolddesk.com/",
+            "android_sdk_LjjZtgcIkOVZJA5z04ttkv2aiEdoTJQQuDj3d78oKQw",
+            "https://dev-chat-integration.bolddesk.com/",
             "en-US"
         )
 
@@ -104,16 +104,16 @@ fun HostAppUI() {
                 }
             }
 
-            // Set User Data
-            Text("Set User Data", style = MaterialTheme.typography.titleSmall)
-            Button(onClick = {
-                BDChatSDK.setUserEmail("testandroidsdk2@gmail.com")
-                BDChatSDK.setUserName("dinesh2")
-                BDChatSDK.setUserPhoneNo("9876543012")
-                BDChatSDK.setUserToken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.[REDACTED].Ydrvdd5_QywVli0z1qPkdZYrmy8zDhwdDbaFngBUKhk")
-            }) {
-                Text("Set user data")
-            }
+//            // Set User Data
+//            Text("Set User Data", style = MaterialTheme.typography.titleSmall)
+//            Button(onClick = {
+//                BDChatSDK.setUserEmail("testandroidsdk2@gmail.com")
+//                BDChatSDK.setUserName("dinesh2")
+//                BDChatSDK.setUserPhoneNo("9876543012")
+//                BDChatSDK.setUserToken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.[REDACTED].Ydrvdd5_QywVli0z1qPkdZYrmy8zDhwdDbaFngBUKhk")
+//            }) {
+//                Text("Set user data")
+//            }
 
 //            Button(onClick = {
 //                BDChatSDK.setOnValidate { formData ->
