@@ -1,0 +1,85 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
+// swift-module-flags: -target x86_64-apple-ios18.5-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name SampleSwiftUIFramework
+// swift-module-flags-ignorable:  -interface-compiler-version 6.1.2
+import AVFoundation
+import Combine
+import CoreText
+import Foundation
+import Swift
+import SwiftUI
+import UIKit
+import UniformTypeIdentifiers
+import WebKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+
+@_Concurrency.MainActor @preconcurrency public struct DateFieldView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(placeholder: Swift.String, minDate: Swift.String? = nil, maxDate: Swift.String? = nil, selectedDate: Swift.String? = nil, updateSelectedDate: @escaping (Swift.String?) -> Swift.Void, validation: ((Swift.String?) -> Swift.Bool)? = nil, errorMessage: SwiftUICore.Binding<Swift.String>, isValid: SwiftUICore.Binding<Swift.Bool>)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s22SampleSwiftUIFramework13DateFieldViewV4bodyQrvp", 0) __
+}
+@_Concurrency.MainActor @preconcurrency public struct DateTimeFieldView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(placeholder: Swift.String, minDate: Swift.String? = nil, maxDate: Swift.String? = nil, selectedDateTime: Swift.String? = nil, updateSelectedDateTime: @escaping (Swift.String?) -> Swift.Void, validation: ((Swift.String?) -> Swift.Bool)? = nil, errorMessage: SwiftUICore.Binding<Swift.String>, isValid: SwiftUICore.Binding<Swift.Bool>)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s22SampleSwiftUIFramework17DateTimeFieldViewV4bodyQrvp", 0) __
+}
+
+
+
+
+public struct BDChatSDK {
+  public static var name: Swift.String?
+  public static var email: Swift.String?
+  public static var phoneNo: Swift.String?
+  public static var userToken: Swift.String?
+  public static var fields: [Swift.String : SampleSwiftUIFramework.FieldValue]?
+  public static var onValidate: ((_ formData: [Swift.String : Swift.String], _ completion: @escaping (_ isValid: Swift.Bool, _ confirmationMessage: Swift.String?) -> Swift.Void) -> Swift.Void)?
+  public static func configure(appToken: Swift.String, domainURL: Swift.String)
+  public static func setUserEmail(_ email: Swift.String?)
+  public static func setUserName(_ name: Swift.String?)
+  public static func setUserPhoneNo(_ phoneNo: Swift.String?)
+  public static func setUserToken(_ userToken: Swift.String?)
+  public static func setChatFields(_ fields: [Swift.String : SampleSwiftUIFramework.FieldValue]?)
+  public static func setup()
+  public static var Theme: SampleSwiftUIFramework.SDKTheme {
+    get
+    set
+  }
+  public static func setPreferredTheme(_ theme: SampleSwiftUIFramework.SDKTheme)
+  public static func showChat()
+  public static func closeChat()
+  public static func clearChatSession()
+}
+public enum SDKTheme {
+  case light
+  case dark
+  case system
+  public static func == (a: SampleSwiftUIFramework.SDKTheme, b: SampleSwiftUIFramework.SDKTheme) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public enum FieldValue : Swift.Encodable {
+  case string(Swift.String)
+  case array([Swift.String])
+  public func encode(to encoder: any Swift.Encoder) throws
+}
+public enum ResourceManager {
+  public static var frameworkBundle: Foundation.Bundle {
+    get
+  }
+  public static func registerFonts(_ fontFileNames: [Swift.String])
+  public static func localized(_ key: Swift.String, value: Swift.String = "", comment: Swift.String = "") -> Swift.String
+}
+
+extension SampleSwiftUIFramework.DateFieldView : Swift.Sendable {}
+extension SampleSwiftUIFramework.DateTimeFieldView : Swift.Sendable {}
+extension SampleSwiftUIFramework.SDKTheme : Swift.Equatable {}
+extension SampleSwiftUIFramework.SDKTheme : Swift.Hashable {}
