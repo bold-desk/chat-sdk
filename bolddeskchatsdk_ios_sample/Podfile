@@ -1,0 +1,10 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'bolddeskchatsdk_ios_sample' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for bolddeskchatsdk_ios_sample
+   pod 'SampleSwiftUIFramework', :git => 'https://gitea.syncfusion.com/JalagandeswaranSaiNandaKumar/SampleSwiftUIFramework.git', :tag => '0.0.8'
+end
