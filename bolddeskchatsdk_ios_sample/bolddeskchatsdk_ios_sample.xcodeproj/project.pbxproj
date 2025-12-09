@@ -20,6 +20,8 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		48E680D22EE578C900CD3CF3 /* bolddeskchatsdk_ios_sample */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = bolddeskchatsdk_ios_sample;
 			sourceTree = "<group>";
 		};
@@ -172,13 +174,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-bolddeskchatsdk_ios_sample/Pods-bolddeskchatsdk_ios_sample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-bolddeskchatsdk_ios_sample/Pods-bolddeskchatsdk_ios_sample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
