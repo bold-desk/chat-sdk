@@ -1,6 +1,6 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
-// swift-module-flags: -target x86_64-apple-ios18.5-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name SampleSwiftUIFramework
+// swift-module-flags: -target x86_64-apple-ios14-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name SampleSwiftUIFramework
 // swift-module-flags-ignorable:  -interface-compiler-version 6.1.2
 import AVFoundation
 import Combine
@@ -14,7 +14,6 @@ import WebKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
-
 @_Concurrency.MainActor @preconcurrency public struct DateFieldView : SwiftUICore.View {
   @_Concurrency.MainActor @preconcurrency public init(placeholder: Swift.String, minDate: Swift.String? = nil, maxDate: Swift.String? = nil, selectedDate: Swift.String? = nil, updateSelectedDate: @escaping (Swift.String?) -> Swift.Void, validation: ((Swift.String?) -> Swift.Bool)? = nil, errorMessage: SwiftUICore.Binding<Swift.String>, isValid: SwiftUICore.Binding<Swift.Bool>)
   @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
@@ -31,7 +30,13 @@ import _SwiftConcurrencyShims
 }
 
 
-
+public enum ResourceManager {
+  public static var frameworkBundle: Foundation.Bundle {
+    get
+  }
+  public static func registerFonts(_ fontFileNames: [Swift.String])
+  public static func localized(_ key: Swift.String, value: Swift.String = "", comment: Swift.String = "") -> Swift.String
+}
 
 public struct BDChatSDK {
   public static var name: Swift.String?
@@ -71,13 +76,8 @@ public enum FieldValue : Swift.Encodable {
   case array([Swift.String])
   public func encode(to encoder: any Swift.Encoder) throws
 }
-public enum ResourceManager {
-  public static var frameworkBundle: Foundation.Bundle {
-    get
-  }
-  public static func registerFonts(_ fontFileNames: [Swift.String])
-  public static func localized(_ key: Swift.String, value: Swift.String = "", comment: Swift.String = "") -> Swift.String
-}
+
+
 
 extension SampleSwiftUIFramework.DateFieldView : Swift.Sendable {}
 extension SampleSwiftUIFramework.DateTimeFieldView : Swift.Sendable {}

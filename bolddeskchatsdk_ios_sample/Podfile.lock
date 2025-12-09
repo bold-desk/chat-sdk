@@ -1,22 +1,22 @@
 PODS:
-  - SampleSwiftUIFramework (0.0.7)
+  - SampleSwiftUIFramework (0.0.9)
 
 DEPENDENCIES:
-  - SampleSwiftUIFramework (from `https://gitea.syncfusion.com/JalagandeswaranSaiNandaKumar/SampleSwiftUIFramework.git`, tag `0.0.8`)
+  - SampleSwiftUIFramework (from `https://gitea.syncfusion.com/JalagandeswaranSaiNandaKumar/SampleSwiftUIFramework.git`, tag `0.0.9`)
 
 EXTERNAL SOURCES:
   SampleSwiftUIFramework:
     :git: https://gitea.syncfusion.com/JalagandeswaranSaiNandaKumar/SampleSwiftUIFramework.git
-    :tag: 0.0.8
+    :tag: 0.0.9
 
 CHECKOUT OPTIONS:
   SampleSwiftUIFramework:
     :git: https://gitea.syncfusion.com/JalagandeswaranSaiNandaKumar/SampleSwiftUIFramework.git
-    :tag: 0.0.8
+    :tag: 0.0.9
 
 SPEC CHECKSUMS:
-  SampleSwiftUIFramework: 2cd30be3d412a63b0452d547e07ef92d34ac3743
+  SampleSwiftUIFramework: 8657e3f70be65bfa3a6a8c495d325b1b0f3d298d
 
-PODFILE CHECKSUM: 0afeba1830d1bb803590f4dea8fc844a4d17138b
+PODFILE CHECKSUM: 8853f987f3761590a969b69227383737cfddeed3
 
 COCOAPODS: 1.16.2
