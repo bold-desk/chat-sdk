@@ -41,11 +41,11 @@ struct ContentView: View {
             VStack(spacing: 12) {
                 Button("Show Chat") {
                     applyThemePreference()
-                    BDChatSDK.showChat()
+                    BoldDeskChatSDK.showChat()
                 }
 
                 Button("Clear Chat") {
-                    BDChatSDK.clearChatSession()
+                    BoldDeskChatSDK.clearSession()
                 }
 
                 StyledPicker(selection: $selectedTheme, options: themes, labelProvider: themeDisplayName)
@@ -71,7 +71,7 @@ struct ContentView: View {
             return
         }
 
-        BDChatSDK.configure(appToken: trimmedAppId, domainURL: trimmedBrandId)
+        BoldDeskChatSDK.configure(appKey: trimmedAppId, brandUrl: trimmedBrandId)
         AppConstants.appKey = trimmedAppId
         AppConstants.brandURL = trimmedBrandId
         isConfigured = true
@@ -81,7 +81,7 @@ struct ContentView: View {
 
     private func applyThemePreference() {
         guard isConfigured else { return }
-        BDChatSDK.setPreferredTheme(selectedTheme)
+        BoldDeskChatSDK.setPreferredTheme(selectedTheme)
     }
 
     private func themeDisplayName(_ theme: SDKTheme) -> String {
