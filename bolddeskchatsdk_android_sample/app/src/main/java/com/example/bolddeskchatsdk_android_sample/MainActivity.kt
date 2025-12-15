@@ -55,11 +55,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
 
         // Configure the SDK once (sample values shown)
-        BDChatSDK.configure(
-            "android_sdk_LjjZtgcIkOVZJA5z04ttkv2aiEdoTJQQuDj3d78oKQw",
-            "https://dev-chat-integration.bolddesk.com/",
-            "en-US"
-        )
+        BDChatSDK.configure(applicationContext, appToken = "android_sdk_l519UPS6ayPVSw5g4XjLU4lgC2fwOL4kSH7Qs3lE8", domainURL = "https://dev-chat-integration.bolddesk.com")
 
         setContent {
             // Use your app theme wrapper; inner MaterialTheme used for demo UI
