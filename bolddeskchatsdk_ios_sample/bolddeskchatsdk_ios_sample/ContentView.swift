@@ -2,8 +2,8 @@ import SwiftUI
 import SampleSwiftUIFramework
 
 struct ContentView: View {
-    let fonts = ["Inter", "Roboto", "Poppins", "Times New Roman", "Open Sans"]
-    @State private var selectedFont = "Inter"
+    let themes = [SDKTheme.light , SDKTheme.dark, SDKTheme.system]
+    @State private var selectedTheme = SDKTheme.system
     @State private var appId = ""
     @State private var brandId = ""
     @State private var isConfigured = false
@@ -15,7 +15,7 @@ struct ContentView: View {
                 Text("SDK Configuration")
                     .font(.headline)
 
-                configurationField(title: "App Id", text: $appId)
+                configurationField(title: "App Key", text: $appId)
                 configurationField(title: "Brand URL", text: $brandId)
 
                 Button(action: configureSDK) {
@@ -40,7 +40,7 @@ struct ContentView: View {
 
             VStack(spacing: 12) {
                 Button("Show Chat") {
-                    applyFontPreference()
+                    applyThemePreference()
                     BDChatSDK.showChat()
                 }
                 .disabled(!isConfigured)
@@ -50,23 +50,13 @@ struct ContentView: View {
                 }
                 .disabled(!isConfigured)
 
-                Button("Set light theme") {
-                    BDChatSDK.setPreferredTheme(.light)
-                }
-                .disabled(!isConfigured)
-
-                Button("Set dark theme") {
-                    BDChatSDK.Theme = .dark
-                }
-                .disabled(!isConfigured)
-
-                StyledPicker(selection: $selectedFont, options: fonts)
+                StyledPicker(selection: $selectedTheme, options: themes, labelProvider: themeDisplayName)
                     .disabled(!isConfigured)
             }
         }
         .padding()
-        .onChange(of: selectedFont) { _ in
-            applyFontPreference()
+        .onChange(of: selectedTheme) { _ in
+            applyThemePreference()
         }
     }
 
@@ -83,12 +73,21 @@ struct ContentView: View {
         BDChatSDK.configure(appToken: trimmedAppId, domainURL: trimmedBrandId)
         isConfigured = true
         statusMessage = "SDK configured successfully."
-        applyFontPreference()
+        applyThemePreference()
     }
 
-    private func applyFontPreference() {
+    private func applyThemePreference() {
         guard isConfigured else { return }
-//        BDChatSDK.customFontName = selectedFont
+        BDChatSDK.setPreferredTheme(selectedTheme)
+    }
+
+    private func themeDisplayName(_ theme: SDKTheme) -> String {
+        switch theme {
+        case .light: return "Light"
+        case .dark: return "Dark"
+        case .system: return "System"
+        @unknown default: return String(describing: theme)
+        }
     }
 
     @ViewBuilder
@@ -108,20 +107,21 @@ struct ContentView: View {
 }
 
 // MARK: - StyledPicker
-struct StyledPicker: View {
-    @Binding var selection: String
-    var options: [String]
+struct StyledPicker<T: Hashable>: View {
+    @Binding var selection: T
+    var options: [T]
+    var labelProvider: (T) -> String
 
     var body: some View {
         Menu {
             ForEach(options, id: \.self) { option in
                 Button(action: { selection = option }) {
-                    Text(option)
+                    Text(labelProvider(option))
                 }
             }
         } label: {
             HStack {
-                Text(selection)
+                Text(labelProvider(selection))
                     .foregroundColor(.primary)
                     .font(.system(size: 16))
                     .frame(maxWidth: .infinity, alignment: .leading)
