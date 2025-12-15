@@ -43,18 +43,19 @@ struct ContentView: View {
                     applyThemePreference()
                     BDChatSDK.showChat()
                 }
-                .disabled(!isConfigured)
 
                 Button("Clear Chat") {
                     BDChatSDK.clearChatSession()
                 }
-                .disabled(!isConfigured)
 
                 StyledPicker(selection: $selectedTheme, options: themes, labelProvider: themeDisplayName)
-                    .disabled(!isConfigured)
             }
         }
         .padding()
+        .onAppear {
+            appId = AppConstants.appKey
+            brandId = AppConstants.brandURL
+        }
         .onChange(of: selectedTheme) { _ in
             applyThemePreference()
         }
@@ -71,6 +72,8 @@ struct ContentView: View {
         }
 
         BDChatSDK.configure(appToken: trimmedAppId, domainURL: trimmedBrandId)
+        AppConstants.appKey = trimmedAppId
+        AppConstants.brandURL = trimmedBrandId
         isConfigured = true
         statusMessage = "SDK configured successfully."
         applyThemePreference()
