@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4893E5032EF431FD00AF1CF6 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 4893E5022EF431FD00AF1CF6 /* FirebaseMessaging */; };
 		B82FE8659C7197D30EA281A4 /* Pods_bolddeskchatsdk_ios_sample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BD135206EF968CD4E1F7496 /* Pods_bolddeskchatsdk_ios_sample.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4893E5032EF431FD00AF1CF6 /* FirebaseMessaging in Frameworks */,
 				B82FE8659C7197D30EA281A4 /* Pods_bolddeskchatsdk_ios_sample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -121,6 +123,9 @@
 			);
 			mainGroup = 48E680C72EE578C900CD3CF3;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				4893E5012EF431FD00AF1CF6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 48E680D12EE578C900CD3CF3 /* Products */;
 			projectDirPath = "";
@@ -405,6 +410,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4893E5012EF431FD00AF1CF6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.7.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4893E5022EF431FD00AF1CF6 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4893E5012EF431FD00AF1CF6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 48E680C82EE578C900CD3CF3 /* Project object */;
 }
