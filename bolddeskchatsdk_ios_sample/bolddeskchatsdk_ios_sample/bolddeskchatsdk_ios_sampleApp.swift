@@ -96,7 +96,7 @@ class AppDelegate: NSObject, UIApplicationDelegate,
 
 // MARK: - SwiftUI App
 @main
-struct SampleIOSApp: App {
+struct bolddeskchatsdk_ios_sampleApp: App {
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     
