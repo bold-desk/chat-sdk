@@ -1,10 +1,10 @@
 package com.example.bolddeskchatsdk_android_sample
 
+import android.content.Context
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -13,53 +13,52 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.syncfusion.bolddeskandroidchatSDK.BoldDeskChatSDK
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
+import android.widget.Toast
+import androidx.compose.foundation.text.KeyboardOptions
 import com.example.bolddeskchatsdk_android_sample.ui.theme.Bolddeskchatsdk_android_sampleTheme
-import com.syncfusion.bolddeskandroidchatSDK.BDChatSDK
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.FirebaseApp
+import com.google.firebase.messaging.FirebaseMessaging
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
-//class MainActivity : ComponentActivity() {
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        BDChatSDK.configure(
-//            "android_sdk_n3m7wgQSRK23Y0BJ32JKbpj5t2tZH3kYkxnNPzAKrMY",
-//            "https://stagingboldsign.bolddesk.com/",
-//            "en-US"
-//        )
-//        BDChatSDK.showChat(context = this)
-//        enableEdgeToEdge()
-//        setContent {
-//            Bolddeskchatsdk_android_sampleTheme {
-//                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-//                    Greeting(
-//                        name = "Android",
-//                        modifier = Modifier.padding(innerPadding)
-//                    )
-//                }
-//            }
-//        }
-//    }
-//}
+private val BrandColor = Color(0xFF155EEF)
+var fcm_token = ""
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         enableEdgeToEdge()
-
         // Configure the SDK once (sample values shown)
-        BDChatSDK.configure(applicationContext, appToken = "android_sdk_l519UPS6ayPVSw5g4XjLU4lgC2fwOL4kSH7Qs3lE8", domainURL = "https://dev-chat-integration.bolddesk.com")
+//        FirebaseApp.initializeApp(this)
+//        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
+//            if (!task.isSuccessful) {
+//                return@OnCompleteListener
+//            }
+//            val token = task.result
+//            fcm_token = token
+//            BoldDeskChatSDK.enablePushNotification(fcmToken = token)
+//        })
+
+        BoldDeskChatSDK.enableLogging()
 
         setContent {
-            // Use your app theme wrapper; inner MaterialTheme used for demo UI
             Bolddeskchatsdk_android_sampleTheme {
+//                NotificationPermissionScreen()
                 HostAppUI()
             }
         }
@@ -69,66 +68,116 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun HostAppUI() {
     val context = LocalContext.current
+    val sharedPrefs = remember { context.getSharedPreferences("BDChatPrefs", Context.MODE_PRIVATE) }
 
-    MaterialTheme(colorScheme = lightColorScheme()) {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(color = MaterialTheme.colorScheme.background)
-                .padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(16.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Text(
-                "Host App - Configure SDK and Show Chat Widget",
-                style = MaterialTheme.typography.headlineSmall,
-                color = MaterialTheme.colorScheme.onBackground
-            )
+    var appToken by remember {
+        mutableStateOf(
+            sharedPrefs.getString("appToken", "") ?: ""
+        )
+    }
+    var domainUrl by remember {
+        mutableStateOf(
+            sharedPrefs.getString("domainUrl", "") ?: ""
+        )
+    }
+    var isSaving by remember { mutableStateOf(false) }
 
-            Spacer(modifier = Modifier.height(8.dp))
-
-            // Theme Set Buttons
-            Text("Set Theme", style = MaterialTheme.typography.titleSmall)
-            androidx.compose.foundation.layout.Row(
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
-            ) {
-                Button(onClick = { BDChatSDK.setPreferredTheme(BDChatSDK.SDKTheme.LIGHT) }) {
-                    Text("Set Light Theme")
-                }
-                Button(onClick = { BDChatSDK.setPreferredTheme(BDChatSDK.SDKTheme.DARK) }) {
-                    Text("Set Dark Theme")
-                }
-            }
-
-//            // Set User Data
-//            Text("Set User Data", style = MaterialTheme.typography.titleSmall)
-//            Button(onClick = {
-//                BDChatSDK.setUserEmail("testandroidsdk2@gmail.com")
-//                BDChatSDK.setUserName("dinesh2")
-//                BDChatSDK.setUserPhoneNo("9876543012")
-//                BDChatSDK.setUserToken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.[REDACTED].Ydrvdd5_QywVli0z1qPkdZYrmy8zDhwdDbaFngBUKhk")
-//            }) {
-//                Text("Set user data")
-//            }
-
-//            Button(onClick = {
-//                BDChatSDK.setOnValidate { formData ->
-//                    // Example validation hook
-//                    Pair(true, "Welcome! Thanks for verifying.")
-//                }
-//            }) {
-//                Text("Set OnValidate")
-//            }
-
-            // Show Widget Button
-            Button(onClick = { BDChatSDK.showChat(context) }) {
-                Text("Show Chat Widget")
-            }
-
-            // Clear Session Button
-            Button(onClick = { BDChatSDK.clearChatSession() }) {
-                Text("Clear Chat Session")
+    LaunchedEffect(appToken, domainUrl) {
+        if (appToken.isNotBlank() && domainUrl.isNotBlank()) {
+            BoldDeskChatSDK.configure(context, appToken.trim(), domainUrl.trim())
+            with(sharedPrefs.edit()) {
+                putString("appToken", appToken.trim())
+                putString("domainUrl", domainUrl.trim())
+                apply()
             }
         }
+    }
+
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp)
+            .verticalScroll(rememberScrollState()),
+        verticalArrangement = Arrangement.Center
+    ) {
+        Text(
+            "SDK Configuration",
+            style = MaterialTheme.typography.titleLarge,
+            fontWeight = FontWeight.Bold
+        )
+        Spacer(modifier = Modifier.height(10.dp))
+        OutlinedTextField(
+            value = appToken,
+            onValueChange = { appToken = it },
+            label = { Text("App ID") },
+            singleLine = true,
+            modifier = Modifier.fillMaxWidth()
+        )
+        Spacer(modifier = Modifier.height(5.dp))
+        OutlinedTextField(
+            value = domainUrl,
+            onValueChange = { domainUrl = it },
+            label = { Text("Brand URL") },
+            singleLine = true,
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Uri),
+            modifier = Modifier.fillMaxWidth()
+        )
+        Spacer(modifier = Modifier.height(10.dp))
+        Button(
+            onClick = {
+                isSaving = true
+                Toast.makeText(context, "Configuration saved & applied!", Toast.LENGTH_SHORT).show()
+                kotlinx.coroutines.GlobalScope.launch {
+                    delay(600)
+                    isSaving = false
+                }
+            },
+            enabled = appToken.isNotBlank() && domainUrl.isNotBlank(),
+            colors = ButtonDefaults.buttonColors(containerColor = BrandColor),
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            if (isSaving) {
+                CircularProgressIndicator(
+                    color = Color.White,
+                    strokeWidth = 2.dp,
+                    modifier = Modifier.size(18.dp)
+                )
+                Spacer(Modifier.width(8.dp))
+            }
+            Text("Configure", color = Color.White)
+        }
+        Spacer(modifier = Modifier.height(10.dp))
+        TextButton(
+            onClick = { BoldDeskChatSDK.showChat(context) },
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("Show Chat", color = BrandColor)
+        }
+
+        TextButton(
+            onClick = {
+                BoldDeskChatSDK.clearSession()
+                BoldDeskChatSDK.disablePushNotification(fcm_token)
+                Toast.makeText(context, "Session cleared", Toast.LENGTH_SHORT).show()
+            },
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("Clear Chat", color = BrandColor)
+        }
+
+        TextButton(
+            onClick = { BoldDeskChatSDK.setPreferredTheme(BoldDeskChatSDK.SDKTheme.LIGHT) },
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("Set light theme", color = BrandColor)
+        }
+
+        TextButton(
+            onClick = { BoldDeskChatSDK.setPreferredTheme(BoldDeskChatSDK.SDKTheme.DARK) },
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("Set dark theme", color = BrandColor)
+        }
+        Spacer(modifier = Modifier.height(10.dp))
     }
 }

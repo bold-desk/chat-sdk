@@ -6,9 +6,10 @@ plugins {
 
 android {
     namespace = "com.example.bolddeskchatsdk_android_sample"
-    compileSdk {
-        version = release(36)
-    }
+//    compileSdk {
+//        version = release(36)
+//    }
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.example.bolddeskchatsdk_android_sample"
@@ -57,5 +58,6 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
-    implementation("io.github.dineshdksf4610:test-bolddesk-chat-SDK:1.1.8")
+    implementation(libs.firebase.messaging)
+    implementation("com.bolddesk:bolddesk_chat_sdk:1.0.1")
 }
