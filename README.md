@@ -18,14 +18,12 @@ The **BoldDesk Chat SDK** empowers you to seamlessly integrate a fully functiona
 | -------------- | ------------------ | ---------- | ------------------------ |
 | **Android**    | API 28+            | Kotlin     | 2.2+ ([Gradle Compatibility](https://developer.android.com/build/kotlin-support)) |
 | **iOS**        | 14.0+              | Swift UI   | 5.3                      |
-| **Flutter**    | —                  | Dart       | Latest                   |
-| **React Native** | —                | JavaScript | Latest                   |
 
 ---
 
 ## ⚙️ Getting Started
 
 To set up the SDK in your BoldDesk environment, follow the step-by-step guide here:  
-👉 [How to Configure Android Chat SDK in BoldDesk](https://support.bolddesk.com/kb/article/21786)
+👉 [How to Configure Android Chat SDK in BoldDesk](https://support.bolddesk.com/kb/article/22169)
 
-👉 [How to Configure IOS Chat SDK in BoldDesk](https://support.bolddesk.com/kb/article/21786)
+👉 [How to Configure IOS Chat SDK in BoldDesk](https://support.bolddesk.com/kb/article/22170)
