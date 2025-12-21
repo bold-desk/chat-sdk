@@ -52,10 +52,6 @@ struct ContentView: View {
             }
         }
         .padding()
-        .onAppear {
-            appId = AppConstants.appKey
-            brandId = AppConstants.brandURL
-        }
         .onChange(of: selectedTheme) { _ in
             applyThemePreference()
         }
@@ -72,8 +68,6 @@ struct ContentView: View {
         }
 
         BDChatSDK.configure(appKey: trimmedAppId, brandUrl: trimmedBrandId)
-        AppConstants.appKey = trimmedAppId
-        AppConstants.brandURL = trimmedBrandId
         isConfigured = true
         statusMessage = "SDK configured successfully."
         applyThemePreference()
