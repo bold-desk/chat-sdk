@@ -15,10 +15,7 @@ class AppDelegate: NSObject, UIApplicationDelegate,
             .LaunchOptionsKey: Any]? = nil
     ) -> Bool {
         // Configure Firebase.
-//        FirebaseApp.configure()
-        
-        
-        
+        FirebaseApp.configure()
         UNUserNotificationCenter.current().delegate = self
         Messaging.messaging().delegate = self
         // Request permission to show alerts, badges, and sounds.
