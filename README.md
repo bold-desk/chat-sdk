@@ -23,7 +23,7 @@ The **BoldDesk Chat SDK** empowers you to seamlessly integrate a fully functiona
 
 ## ⚙️ Getting Started
 
-To set up the SDK in your BoldDesk environment, follow the step-by-step guide here:  
+To set up the SDK in your mobile app, follow the step-by-step guides below:
 👉 [How to Configure Android Chat SDK in BoldDesk](https://support.bolddesk.com/kb/article/22169)
 
 👉 [How to Configure IOS Chat SDK in BoldDesk](https://support.bolddesk.com/kb/article/22170)
