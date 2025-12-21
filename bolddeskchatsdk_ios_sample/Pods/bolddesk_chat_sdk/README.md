@@ -1,6 +1,6 @@
-# BoldDesk Chat SDK
+# BoldDesk Chat iOS SDK
 
-The **BoldDesk Chat SDK** empowers you to seamlessly integrate a fully functional chat widget into your mobile applications. With this SDK, end-users can connect with support agents in real time—without needing to open a web browser.
+The **BoldDesk Chat iOS SDK** empowers you to seamlessly integrate a fully functional chat widget into your iOS mobile applications. With this SDK, end-users can connect with support agents in real time—without needing to open a web browser.
 
 ---
 
@@ -16,14 +16,11 @@ The **BoldDesk Chat SDK** empowers you to seamlessly integrate a fully functiona
 
 | Platform       | Minimum OS Version | Language   | Version                  |
 | -------------- | ------------------ | ---------- | ------------------------ |
-| **Android**    | API 28+            | Kotlin     | 2.2+ ([Gradle Compatibility](https://developer.android.com/build/kotlin-support)) |
 | **iOS**        | 14.0+              | Swift UI   | 5.3                      |
 
 ---
 
 ## ⚙️ Getting Started
 
-To set up the SDK in your mobile app, follow the step-by-step guides below:
-👉 [How to Configure Android Chat SDK in BoldDesk](https://support.bolddesk.com/kb/article/22169)
-
+To set up the SDK in your BoldDesk environment, follow the step-by-step guide here:  
 👉 [How to Configure IOS Chat SDK in BoldDesk](https://support.bolddesk.com/kb/article/22170)

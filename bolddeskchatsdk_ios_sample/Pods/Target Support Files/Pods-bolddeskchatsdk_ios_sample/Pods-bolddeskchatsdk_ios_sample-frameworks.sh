@@ -176,10 +176,10 @@ code_sign_if_enabled() {
 }
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/SampleSwiftUIFramework/SampleSwiftUIFramework.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/bolddesk_chat_sdk/BoldDeskChatSDK.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/SampleSwiftUIFramework/SampleSwiftUIFramework.framework"
+  install_framework "${PODS_XCFRAMEWORKS_BUILD_DIR}/bolddesk_chat_sdk/BoldDeskChatSDK.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

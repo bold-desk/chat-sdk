@@ -7,20 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01482C22E705A88DE5CA979D /* Pods_bolddeskchatsdk_ios_sample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFE46CCF8E2E9A99BCD3535C /* Pods_bolddeskchatsdk_ios_sample.framework */; };
 		4893E5032EF431FD00AF1CF6 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 4893E5022EF431FD00AF1CF6 /* FirebaseMessaging */; };
-		B82FE8659C7197D30EA281A4 /* Pods_bolddeskchatsdk_ios_sample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BD135206EF968CD4E1F7496 /* Pods_bolddeskchatsdk_ios_sample.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		48E680D02EE578C900CD3CF3 /* bolddeskchatsdk_ios_sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bolddeskchatsdk_ios_sample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		802D41A3678E23BEC35D82D5 /* Pods-bolddeskchatsdk_ios_sample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bolddeskchatsdk_ios_sample.debug.xcconfig"; path = "Target Support Files/Pods-bolddeskchatsdk_ios_sample/Pods-bolddeskchatsdk_ios_sample.debug.xcconfig"; sourceTree = "<group>"; };
-		9BD135206EF968CD4E1F7496 /* Pods_bolddeskchatsdk_ios_sample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bolddeskchatsdk_ios_sample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D9E24995844A50EB5A19FAA1 /* Pods-bolddeskchatsdk_ios_sample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bolddeskchatsdk_ios_sample.release.xcconfig"; path = "Target Support Files/Pods-bolddeskchatsdk_ios_sample/Pods-bolddeskchatsdk_ios_sample.release.xcconfig"; sourceTree = "<group>"; };
+		6C02CDEEAB2F0984BC6E710C /* Pods-bolddeskchatsdk_ios_sample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bolddeskchatsdk_ios_sample.debug.xcconfig"; path = "Target Support Files/Pods-bolddeskchatsdk_ios_sample/Pods-bolddeskchatsdk_ios_sample.debug.xcconfig"; sourceTree = "<group>"; };
+		E0905CE155879AB9205C314F /* Pods-bolddeskchatsdk_ios_sample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bolddeskchatsdk_ios_sample.release.xcconfig"; path = "Target Support Files/Pods-bolddeskchatsdk_ios_sample/Pods-bolddeskchatsdk_ios_sample.release.xcconfig"; sourceTree = "<group>"; };
+		FFE46CCF8E2E9A99BCD3535C /* Pods_bolddeskchatsdk_ios_sample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bolddeskchatsdk_ios_sample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		48E680D22EE578C900CD3CF3 /* bolddeskchatsdk_ios_sample */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
 			path = bolddeskchatsdk_ios_sample;
 			sourceTree = "<group>";
 		};
@@ -32,7 +34,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4893E5032EF431FD00AF1CF6 /* FirebaseMessaging in Frameworks */,
-				B82FE8659C7197D30EA281A4 /* Pods_bolddeskchatsdk_ios_sample.framework in Frameworks */,
+				01482C22E705A88DE5CA979D /* Pods_bolddeskchatsdk_ios_sample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,7 +47,7 @@
 				48E680D22EE578C900CD3CF3 /* bolddeskchatsdk_ios_sample */,
 				48E680D12EE578C900CD3CF3 /* Products */,
 				E553E6872F8848B58A3F5E8D /* Pods */,
-				7A0910BAFE187FB4434AE78D /* Frameworks */,
+				656D30A49E4F11CEB3635FA6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,10 +59,10 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		7A0910BAFE187FB4434AE78D /* Frameworks */ = {
+		656D30A49E4F11CEB3635FA6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				9BD135206EF968CD4E1F7496 /* Pods_bolddeskchatsdk_ios_sample.framework */,
+				FFE46CCF8E2E9A99BCD3535C /* Pods_bolddeskchatsdk_ios_sample.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -68,8 +70,8 @@
 		E553E6872F8848B58A3F5E8D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				802D41A3678E23BEC35D82D5 /* Pods-bolddeskchatsdk_ios_sample.debug.xcconfig */,
-				D9E24995844A50EB5A19FAA1 /* Pods-bolddeskchatsdk_ios_sample.release.xcconfig */,
+				6C02CDEEAB2F0984BC6E710C /* Pods-bolddeskchatsdk_ios_sample.debug.xcconfig */,
+				E0905CE155879AB9205C314F /* Pods-bolddeskchatsdk_ios_sample.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -81,11 +83,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 48E680DB2EE578CA00CD3CF3 /* Build configuration list for PBXNativeTarget "bolddeskchatsdk_ios_sample" */;
 			buildPhases = (
-				7ABFA61043EFBC8AAC4A549C /* [CP] Check Pods Manifest.lock */,
+				1BD88E7E7657CC6A32FF0DFB /* [CP] Check Pods Manifest.lock */,
 				48E680CC2EE578C900CD3CF3 /* Sources */,
 				48E680CD2EE578C900CD3CF3 /* Frameworks */,
 				48E680CE2EE578C900CD3CF3 /* Resources */,
-				B55B3A29CA90336B333096FF /* [CP] Embed Pods Frameworks */,
+				9DCFE01BD17965DBEFB141A9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -147,7 +149,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		7ABFA61043EFBC8AAC4A549C /* [CP] Check Pods Manifest.lock */ = {
+		1BD88E7E7657CC6A32FF0DFB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -169,7 +171,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B55B3A29CA90336B333096FF /* [CP] Embed Pods Frameworks */ = {
+		9DCFE01BD17965DBEFB141A9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -177,13 +179,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-bolddeskchatsdk_ios_sample/Pods-bolddeskchatsdk_ios_sample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-bolddeskchatsdk_ios_sample/Pods-bolddeskchatsdk_ios_sample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -324,7 +322,7 @@
 		};
 		48E680DC2EE578CA00CD3CF3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 802D41A3678E23BEC35D82D5 /* Pods-bolddeskchatsdk_ios_sample.debug.xcconfig */;
+			baseConfigurationReference = 6C02CDEEAB2F0984BC6E710C /* Pods-bolddeskchatsdk_ios_sample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -357,7 +355,7 @@
 		};
 		48E680DD2EE578CA00CD3CF3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D9E24995844A50EB5A19FAA1 /* Pods-bolddeskchatsdk_ios_sample.release.xcconfig */;
+			baseConfigurationReference = E0905CE155879AB9205C314F /* Pods-bolddeskchatsdk_ios_sample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

@@ -3,7 +3,7 @@ import UIKit
 import FirebaseCore
 import FirebaseMessaging
 import UserNotifications
-import SampleSwiftUIFramework
+import BoldDeskChatSDK
 
 class AppDelegate: NSObject, UIApplicationDelegate,
     UNUserNotificationCenterDelegate, MessagingDelegate {
@@ -15,7 +15,7 @@ class AppDelegate: NSObject, UIApplicationDelegate,
             .LaunchOptionsKey: Any]? = nil
     ) -> Bool {
         // Configure Firebase.
-        FirebaseApp.configure()
+//        FirebaseApp.configure()
         
         
         
@@ -47,12 +47,8 @@ class AppDelegate: NSObject, UIApplicationDelegate,
     
     // Called when a new FCM registration token is generated or updated.
     // You can send this token to your server or SDK.
-    func messaging(
-        _ messaging: Messaging,
-        didReceiveRegistrationToken fcmToken: String?
-    ) {
-        print(fcmToken)
-        BoldDeskChatSDK.enablePushNotifications(fcmToken: fcmToken ?? "") // Uncomment if BolddeskChatSDK supports it
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+            BDChatSDK.enablePushNotification(fcmToken: fcmToken ?? "") // Uncomment if BolddeskChatSDK supports it
     }
     
     // Called when a notification is received while the app is in the foreground.
@@ -64,10 +60,10 @@ class AppDelegate: NSObject, UIApplicationDelegate,
             @escaping (UNNotificationPresentationOptions) -> Void
     ) {
         let userInfo = notification.request.content.userInfo
-        if BoldDeskChatSDK.isFromMobileSDK(userInfo: userInfo) {
+        if BDChatSDK.isFromChatSDK(userInfo: userInfo) {
             // Only show notification if chat is open, otherwise suppress it.
             // You'll need to implement BoldDeskChatSDK.chatIsOpen() or a similar mechanism.
-            if BoldDeskChatSDK.isChatOpen() { // Assuming chatIsOpen() is a method in BoldDeskChatSDK
+            if BDChatSDK.isChatOpen() { // Assuming chatIsOpen() is a method in BoldDeskChatSDK
                 completionHandler([]) // Suppress the notification
             } else {
                 completionHandler([.banner, .sound, .badge])
@@ -78,16 +74,11 @@ class AppDelegate: NSObject, UIApplicationDelegate,
         }
     }
     // Called when the user taps on a notification.
-    // Posts the notification data so the app can respond (e.g., navigate to a detail screen).
-    func userNotificationCenter(
-        _ center: UNUserNotificationCenter,
-        didReceive response: UNNotificationResponse,
-        withCompletionHandler completionHandler: @escaping () -> Void
-    ) {
+    func userNotificationCenter(_ center: UNUserNotificationCenter,didReceive response: UNNotificationResponse,withCompletionHandler completionHandler: @escaping () -> Void) {
         let userInfo = response.notification.request.content.userInfo
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            if BoldDeskChatSDK.isFromMobileSDK(userInfo: userInfo) {
-                BoldDeskChatSDK.showChat()
+            if BDChatSDK.isFromChatSDK(userInfo: userInfo) {
+                BDChatSDK.showChat()
             }
         }
         completionHandler()
