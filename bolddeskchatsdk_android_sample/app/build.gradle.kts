@@ -61,5 +61,5 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
     implementation ("androidx.compose.material:material-icons-extended:1.6.8")
 
-    implementation("com.bolddesk:bolddesk_chat_sdk:1.0.2")
+    implementation("com.bolddesk:bolddesk_chat_sdk:1.0.3")
 }
