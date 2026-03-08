@@ -1,5 +1,5 @@
 import SwiftUI
-import SampleSwiftUIFramework
+import BoldDeskChatSDK
 
 struct ContentView: View {
     let themes = [SDKTheme.light , SDKTheme.dark, SDKTheme.system]
@@ -41,21 +41,17 @@ struct ContentView: View {
             VStack(spacing: 12) {
                 Button("Show Chat") {
                     applyThemePreference()
-                    BoldDeskChatSDK.showChat()
+                    BDChatSDK.showChat()
                 }
 
                 Button("Clear Chat") {
-                    BoldDeskChatSDK.clearSession()
+                    BDChatSDK.clearSession()
                 }
 
                 StyledPicker(selection: $selectedTheme, options: themes, labelProvider: themeDisplayName)
             }
         }
         .padding()
-        .onAppear {
-            appId = AppConstants.appKey
-            brandId = AppConstants.brandURL
-        }
         .onChange(of: selectedTheme) { _ in
             applyThemePreference()
         }
@@ -71,9 +67,7 @@ struct ContentView: View {
             return
         }
 
-        BoldDeskChatSDK.configure(appKey: trimmedAppId, brandUrl: trimmedBrandId)
-        AppConstants.appKey = trimmedAppId
-        AppConstants.brandURL = trimmedBrandId
+        BDChatSDK.configure(appKey: trimmedAppId, brandUrl: trimmedBrandId)
         isConfigured = true
         statusMessage = "SDK configured successfully."
         applyThemePreference()
@@ -81,12 +75,12 @@ struct ContentView: View {
 
     private func applyThemePreference() {
         guard isConfigured else { return }
-        BoldDeskChatSDK.setPreferredTheme(selectedTheme)
+        BDChatSDK.setPreferredTheme(selectedTheme)
     }
 
     private func themeDisplayName(_ theme: SDKTheme) -> String {
         switch theme {
-        case .light: return "Light"
+        case SDKTheme.light: return "Light"
         case .dark: return "Dark"
         case .system: return "System"
         @unknown default: return String(describing: theme)
