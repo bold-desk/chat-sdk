@@ -7,7 +7,6 @@ target 'bolddeskchatsdk_ios_sample' do
 
   # Pods for bolddeskchatsdk_ios_sample
 
-pod 'bolddesk_chat_sdk'
- 
+pod 'bolddesk_chat_sdk', '~> 1.0.2'
 
 end

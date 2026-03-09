@@ -1,16 +1,16 @@
 PODS:
-  - bolddesk_chat_sdk (1.0.1)
+  - bolddesk_chat_sdk (1.0.2)
 
 DEPENDENCIES:
-  - bolddesk_chat_sdk
+  - bolddesk_chat_sdk (~> 1.0.2)
 
 SPEC REPOS:
   trunk:
     - bolddesk_chat_sdk
 
 SPEC CHECKSUMS:
-  bolddesk_chat_sdk: a17d699a698463b839cb2739dc2805459c60d0b1
+  bolddesk_chat_sdk: aeadf5509d709204402fec7991d1f8125da7bb7a
 
-PODFILE CHECKSUM: f7445f48729010c71a9626ed7bc5aab247967bf0
+PODFILE CHECKSUM: b8ab4b8a000d357925d2dd97e09dacec0a74def9
 
 COCOAPODS: 1.16.2

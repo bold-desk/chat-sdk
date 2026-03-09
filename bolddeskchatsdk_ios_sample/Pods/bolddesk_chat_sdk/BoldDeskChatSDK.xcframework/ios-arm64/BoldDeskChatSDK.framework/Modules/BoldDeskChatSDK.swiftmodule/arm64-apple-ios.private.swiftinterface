@@ -1,7 +1,7 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 6.1.2 effective-5.10 (swiftlang-6.1.2.1.2 clang-1700.0.13.5)
+// swift-compiler-version: Apple Swift version 6.2.1 effective-5.10 (swiftlang-6.2.1.4.8 clang-1700.4.4.1)
 // swift-module-flags: -target arm64-apple-ios14 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name BoldDeskChatSDK
-// swift-module-flags-ignorable:  -interface-compiler-version 6.1.2
+// swift-module-flags-ignorable:  -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.1
 import AVFoundation
 import Combine
 import CoreText
@@ -15,24 +15,33 @@ import WebKit
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
+import _WebKit_SwiftUI
 import os
-
-
-
-
 public struct BDChatSDK {
   public static var name: Swift.String?
   public static var email: Swift.String?
   public static var phoneNo: Swift.String?
   public static var userToken: Swift.String?
+  public static var fields: [Swift.String : Any]?
   public static var fcmToken: Swift.String?
   public static var customFontName: Swift.String?
   public static var applySystemFontSize: Swift.Bool
-  public static func configure(appKey: Swift.String, brandUrl: Swift.String)
-  public static func setUserEmail(_ email: Swift.String?)
-  public static func setUserName(_ name: Swift.String?)
-  public static func setUserPhoneNo(_ phoneNo: Swift.String?)
+  public static var appKey: Swift.String
+  public static var brandUrl: Swift.String
+  public static var isSDKOpen: Swift.Bool
+  #if compiler(>=5.3) && $NonescapableTypes
+  public static func configure(appKey: Swift.String, brandUrl: Swift.String, _ culture: Swift.String? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public static func applyTheme(appbarColor: Swift.String? = nil, accentColor: Swift.String? = nil, backgroundColor: Swift.String? = nil, stickyButtonColor: Swift.String? = nil)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
   public static func setUserToken(_ userToken: Swift.String?)
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public static func setPrefillFields(email: Swift.String? = nil, name: Swift.String? = nil, phoneNo: Swift.String? = nil, fields: [Swift.String : Any]? = nil)
+  #endif
+  public static func setPlatform(sdkPlatform: Swift.String, sdkVersion: Swift.String)
   public static func setup()
   public static var Theme: BoldDeskChatSDK.SDKTheme {
     get
@@ -44,6 +53,7 @@ public struct BDChatSDK {
   public static func enableLogging()
   public static func isChatOpen() -> Swift.Bool
   public static func showChat()
+  public static func handlePushNotification(userInfo: [Swift.AnyHashable : Any])
   public static func closeChat()
   public static func clearSession()
   public static func isFromChatSDK(userInfo: [Swift.AnyHashable : Any]) -> Swift.Bool
@@ -58,25 +68,26 @@ public enum SDKTheme {
     get
   }
 }
-public enum FieldValue : Swift.Encodable {
-  case string(Swift.String)
-  case array([Swift.String])
-  public func encode(to encoder: any Swift.Encoder) throws
-}
 @_Concurrency.MainActor @preconcurrency public struct DateFieldView : SwiftUICore.View {
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public init(placeholder: Swift.String, minDate: Swift.String? = nil, maxDate: Swift.String? = nil, selectedDate: Swift.String? = nil, updateSelectedDate: @escaping (Swift.String?) -> Swift.Void, validation: ((Swift.String?) -> Swift.Bool)? = nil, errorMessage: SwiftUICore.Binding<Swift.String>, isValid: SwiftUICore.Binding<Swift.Bool>)
+  #endif
   @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
     get
   }
   public typealias Body = @_opaqueReturnTypeOf("$s15BoldDeskChatSDK13DateFieldViewV4bodyQrvp", 0) __
 }
 @_Concurrency.MainActor @preconcurrency public struct DateTimeFieldView : SwiftUICore.View {
+  #if compiler(>=5.3) && $NonescapableTypes
   @_Concurrency.MainActor @preconcurrency public init(placeholder: Swift.String, minDate: Swift.String? = nil, maxDate: Swift.String? = nil, selectedDateTime: Swift.String? = nil, updateSelectedDateTime: @escaping (Swift.String?) -> Swift.Void, validation: ((Swift.String?) -> Swift.Bool)? = nil, errorMessage: SwiftUICore.Binding<Swift.String>, isValid: SwiftUICore.Binding<Swift.Bool>)
+  #endif
   @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
     get
   }
   public typealias Body = @_opaqueReturnTypeOf("$s15BoldDeskChatSDK17DateTimeFieldViewV4bodyQrvp", 0) __
 }
+
+
 
 public enum ResourceManager {
   public static var frameworkBundle: Foundation.Bundle {
@@ -85,6 +96,7 @@ public enum ResourceManager {
   public static func registerFonts(_ fontFileNames: [Swift.String])
   public static func localized(_ key: Swift.String, value: Swift.String = "", comment: Swift.String = "") -> Swift.String
 }
+
 
 
 extension BoldDeskChatSDK.SDKTheme : Swift.Equatable {}
