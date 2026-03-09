@@ -1,6 +1,7 @@
 package com.example.bolddeskchatsdk_android_sample
 
 import android.util.Log
+import androidx.core.graphics.drawable.IconCompat
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.messaging.FirebaseMessaging
 import com.google.firebase.messaging.FirebaseMessagingService
@@ -16,7 +17,7 @@ class NotificationService : FirebaseMessagingService() {
             BoldDeskChatSDK.handlePushNotifications(
                 this,
                 remoteMessage.getData(),
-                icon = R.drawable.ic_launcher_background
+                icon = IconCompat.createWithResource(this,R.drawable.ic_launcher_background)
             )
         }
     }
