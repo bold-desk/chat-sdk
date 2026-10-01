@@ -17,7 +17,7 @@ The **BoldDesk Chat SDK** empowers you to seamlessly integrate a fully functiona
 | Platform       | Minimum OS Version | Language   | Version                  |
 | -------------- | ------------------ | ---------- | ------------------------ |
 | **Android**    | API 28+            | Kotlin     | 2.2+ ([Gradle Compatibility](https://developer.android.com/build/kotlin-support)) |
-| **iOS**        | 14.0+              | Swift UI   | 5.3                      |
+| **iOS**        | 15.0+              | Swift UI   | 5.3                      |
 
 ---
 
